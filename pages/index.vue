@@ -8,9 +8,7 @@ definePageMeta({ layout: 'main' })
 <template>
   <DashboardView>
     <template #aside>
-      <div>
-        a
-      </div>
+      <CommonMainSidebar />
     </template>
     <div>
       m
