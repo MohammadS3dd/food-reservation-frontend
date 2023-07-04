@@ -5,6 +5,9 @@ import { appName } from '~/constants'
 
 useHead({
   title: appName,
+  htmlAttrs: {
+    dir: 'rtl',
+  },
 })
 
 const themeOverrides: GlobalThemeOverrides = {

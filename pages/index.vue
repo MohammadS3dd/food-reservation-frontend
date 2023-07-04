@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import DashboardView from '~/components/views/DashboardView.vue'
+import useGlobalState from '~/composables/globalState'
+
+definePageMeta({ layout: 'main' })
 
 const online = useOnline()
-definePageMeta({ layout: 'main' })
+const state = useGlobalState()
 </script>
 
 <template>
@@ -11,7 +14,9 @@ definePageMeta({ layout: 'main' })
       <CommonMainSidebar />
     </template>
     <div>
-      m
+      <BaseButton @click="state.toggleDrawer">
+        {{ state.isDrawerOpen }}
+      </BaseButton>
     </div>
   </DashboardView>
 </template>

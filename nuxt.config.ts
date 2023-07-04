@@ -4,10 +4,13 @@ import { appDescription } from './constants/index'
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
+
     '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
+    'nuxt-icon',
   ],
 
   plugins: [],
@@ -21,9 +24,10 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@unocss/reset/tailwind-compat.css',
+    // '@unocss/reset/tailwind-compat.css',
     'assets/font/fontiran.css',
     'assets/styles/fdColors.scss',
+    '@/assets/styles/style.scss',
   ],
 
   colorMode: {
@@ -60,11 +64,27 @@ export default defineNuxtConfig({
   },
 
   pwa,
-
+  nuxtIcon: {
+    size: '24px', // default <Icon> size applied
+    class: 'icon', // default <Icon> class applied
+    aliases: {
+      nuxt: 'logos:nuxt-icon',
+    },
+  },
   devServer: { port: 30021 },
   ssr: false,
 
   devtools: {
     enabled: false,
+  },
+  build: {
+    postcss: {
+      postcssOptions: {
+        plugins: {
+          tailwindcss: {},
+          autoprefixer: {},
+        },
+      },
+    },
   },
 })
