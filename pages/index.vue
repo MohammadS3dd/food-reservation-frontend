@@ -10,9 +10,6 @@ const state = useGlobalState()
 
 <template>
   <DashboardView>
-    <template #aside>
-      <CommonMainSidebar />
-    </template>
     <div>
       <BaseButton @click="state.toggleDrawer">
         {{ state.isDrawerOpen }}

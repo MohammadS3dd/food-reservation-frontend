@@ -7,7 +7,15 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+
+        brand: {
+          main: '#313B72',
+        },
+      // ...
+      },
+    },
   },
   plugins: [require('daisyui'), require('tailwindcss-flip')],
   daisyui: {
