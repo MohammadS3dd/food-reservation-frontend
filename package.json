@@ -27,10 +27,10 @@
     "@vueuse/nuxt": "^10.2.1",
     "autoprefixer": "^10.4.14",
     "consola": "^3.2.2",
-    "daisyui": "^3.1.7",
+    "daisyui": "^3.5.1",
     "eslint": "^8.43.0",
     "naive-ui": "^2.34.4",
-    "nuxt": "^3.6.1",
+    "nuxt": "^3.6.5",
     "nuxt-icon": "^0.4.1",
     "pinia": "^2.1.4",
     "postcss": "^8.4.24",
@@ -43,6 +43,9 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "nuxt-icons": "^3.2.1"
+    "date-fns": "^2.30.0",
+    "nuxt-icons": "^3.2.1",
+    "ofetch": "^1.1.1",
+    "vue3-toastify": "^0.1.11"
   }
 }

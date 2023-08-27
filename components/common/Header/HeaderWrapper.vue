@@ -3,7 +3,7 @@ import MainHeader from './MainHeader.vue'
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-xl">
+  <div class="overflow-visible rounded-xl bg-white">
     <slot>
       <MainHeader />
     </slot>

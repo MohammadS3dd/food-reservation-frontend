@@ -17,6 +17,8 @@ module.exports = {
       },
     },
   },
+  darkMode: 'class',
+
   plugins: [require('daisyui'), require('tailwindcss-flip')],
   daisyui: {
     themes: false, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]

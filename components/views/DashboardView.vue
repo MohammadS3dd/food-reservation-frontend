@@ -5,18 +5,33 @@ import useGlobalState from '~/composables/globalState'
 import CommonMainHeader from '~/components/common/Header/MainHeader.vue'
 import HeaderWrapper from '~/components/common/Header/HeaderWrapper.vue'
 
+import { useUserStore } from '~/composables/stores/user'
+
 const breakpoints = useBreakpoints(breakpointsTailwind)
-const largerThanMd = breakpoints.greater('md')
+const largerThanLg = breakpoints.greater('lg')
 
 const state = useGlobalState()
+
+const userStore = useUserStore()
+const initialLoginFailed = computed(() => userStore.initialLoginFailed)
+const isAuthenticated = computed(() => userStore.isAuthenticated)
+
+const router = useRouter()
+console.log(121, isAuthenticated)
+watch(initialLoginFailed, () => {
+  if (initialLoginFailed.value)
+    router.push('/login')
+}, { immediate: true })
 </script>
 
 <template>
-  <div class="w-full flex px-8 pt-6">
-    <aside v-show="largerThanMd" class="aside-container ml-8 h-full overflow-y-scroll rounded-t-3xl bg-white bg-opacity-70 p-4 md:w-[350px]">
-      <slot name="aside">
-        <CommonMainSidebar />
-      </slot>
+  <div v-if="isAuthenticated" class="h-full w-full flex px-8 pt-6">
+    <aside v-show="largerThanLg" class="relative md:w-[370px]">
+      <div class="aside-container ml-8 h-full min-h-screen overflow-y-scroll rounded-3xl bg-white bg-opacity-70 p-4">
+        <slot name="aside">
+          <CommonMainSidebar />
+        </slot>
+      </div>
     </aside>
 
     <main class="w-full flex flex-col px-2 md:px-6">
@@ -29,7 +44,7 @@ const state = useGlobalState()
     </main>
   </div>
 
-  <NDrawer v-if="!largerThanMd" v-model:show="state.isDrawerOpen.value" :default-width="300">
+  <NDrawer v-if="!largerThanLg" v-model:show="state.isDrawerOpen.value" :default-width="300">
     <NDrawerContent closable>
       <template #header>
         Header

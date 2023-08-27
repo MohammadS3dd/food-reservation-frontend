@@ -4,7 +4,7 @@ const props = defineProps(['item'])
 
 <template>
   <li>
-    <a :href="item.link" class="main-list-item flex items-center rounded-lg p-2 text-gray-900 dark:text-white dark:hover:bg-gray-700">
+    <a :href="item.link" class="main-list-item flex items-center rounded-lg p-2 text-gray-900">
       <slot name="icon" />
       <span class="ml-3">{{ item.title }}</span>
     </a>

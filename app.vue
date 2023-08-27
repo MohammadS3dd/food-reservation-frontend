@@ -10,6 +10,8 @@ useHead({
   },
 })
 
+
+
 const themeOverrides: GlobalThemeOverrides = {
   common: {
     primaryColor: '#3e93f7',
@@ -23,6 +25,8 @@ const themeOverrides: GlobalThemeOverrides = {
   <VitePwaManifest />
   <NConfigProvider :theme-overrides="themeOverrides">
     <NuxtLayout>
+      <NuxtLoadingIndicator />
+
       <NuxtPage />
     </NuxtLayout>
   </NConfigProvider>
